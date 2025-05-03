@@ -1,12 +1,40 @@
-const rows = 30, cols = 30;
+let rows = 30, cols = 30;
 let grid = [];
 let interval = null;
 let generation = 0;
+let gridSizeInput = document.getElementById("gridSize");
+let speedInput = document.getElementById("speed");
+let animateToggle = document.getElementById("animateToggle");
+
+speedInput.addEventListener("change", () => {
+  if (interval) {
+    stopGame();
+    startGame();
+  }
+});
+
+animateToggle.addEventListener("change", () => {
+  if (animateToggle.checked) {
+    startGame();
+  } else {
+    stopGame();
+  }
+});
+
+gridSizeInput.addEventListener("change", () => {
+  const size = parseInt(gridSizeInput.value);
+  if (!isNaN(size) && size >= 10 && size <= 100) {
+    resizeGrid(size, size);
+  }
+});
 
 function createGrid() {
   const gridDiv = document.getElementById("grid");
   gridDiv.innerHTML = "";
   grid = [];
+
+  gridDiv.style.gridTemplateColumns = `repeat(${cols}, 20px)`;
+  gridDiv.style.gridTemplateRows = `repeat(${rows}, 20px)`;
 
   for (let r = 0; r < rows; r++) {
     const row = [];
@@ -21,6 +49,8 @@ function createGrid() {
     }
     grid.push(row);
   }
+
+  drawGrid();
   updatePopulation();
 }
 
@@ -78,8 +108,9 @@ function run23Generations() {
 }
 
 function startGame() {
-  if (!interval) {
-    interval = setInterval(nextGeneration, 200);
+  if (!interval && animateToggle.checked) {
+    const speed = parseInt(speedInput.value) || 200;
+    interval = setInterval(nextGeneration, speed);
   }
 }
 
@@ -90,8 +121,8 @@ function stopGame() {
 
 function resetGame() {
   generation = 0;
-  createGrid();
   document.getElementById("generation").textContent = generation;
+  createGrid();
 }
 
 function updatePopulation() {
@@ -112,8 +143,19 @@ function loadPattern(name) {
       grid[offsetX + r][offsetY + c] = true;
     }
   });
+
   drawGrid();
   updatePopulation();
 }
+
+function resizeGrid(newRows, newCols) {
+  stopGame();
+  rows = newRows;
+  cols = newCols;
+  generation = 0;
+  document.getElementById("generation").textContent = generation;
+  createGrid();
+}
+
 
 createGrid();

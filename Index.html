@@ -9,6 +9,24 @@
   <h1>Conway's Game of Life</h1>
 
   <div id="controls">
+
+    <label>
+      Grid Size:
+      <input type="number" id="gridSize" value="30" min="10" max="100" />
+    </label>
+  
+    <label>
+      Speed (ms):
+      <input type="number" id="speed" value="200" min="50" />
+    </label>
+  
+    <label>
+      <input type="checkbox" id="animateToggle" checked />
+      Animate
+    </label>
+  
+    <br><br>
+
     <button onclick="startGame()">▶️ Start</button>
     <button onclick="stopGame()">⏸ Stop</button>
     <button onclick="nextGeneration()">⏭ Next</button>

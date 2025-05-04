@@ -1,0 +1,147 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-image: url('../img/backgrounds.jpg');
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: rgb(7, 7, 7);
+}
+
+.form-container,
+.login-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 40px 35px;
+    border-radius: 16px;
+    width: 360px;
+    text-align: center;
+    position: relative;
+    backdrop-filter: blur(10px);
+    border: 2px solid transparent;
+    animation: glow 2s infinite ease-in-out;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px #555, 0 0 20px #555;
+        border-color: #555;
+    }
+
+    50% {
+        box-shadow: 0 0 20px #000, 0 0 40px #000;
+        border-color: #000;
+    }
+
+    100% {
+        box-shadow: 0 0 10px #555, 0 0 20px #555;
+        border-color: #555;
+    }
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #030303;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+form label,
+.input-group label {
+    margin-bottom: 5px;
+    font-weight: 600;
+    display: block;
+    color: #070707;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+.input-group input,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #0c0c0c;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    outline: none;
+}
+
+form input::placeholder,
+select option {
+    color: #dddddd;
+}
+
+form input[type="submit"],
+button {
+    width: 100%;
+    background-color: #2e7d32;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+form input[type="submit"]:hover,
+button:hover {
+    background-color: #1b5e20;
+    box-shadow: 0 0 10px #66bb6a;
+}
+
+.message,
+.success {
+    background: rgba(0, 255, 100, 0.1);
+    border: 1px solid #00ff99;
+    color: #00ff99;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.error {
+    background: rgba(255, 0, 0, 0.1);
+    border: 1px solid red;
+    color: red;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+p,
+.register-link {
+    margin-top: 15px;
+    text-align: center;
+    color: #080808;
+    font-size: 14px;
+}
+
+.register-link a {
+    color: #2e7d32;
+    /* Dark green for "Login" text link */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+    color: #1b5e20;
+    /* Even darker green on hover */
+}

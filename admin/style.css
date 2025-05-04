@@ -1,0 +1,120 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-image: url('../img/backgrounds.jpg');
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+/* Glowing form container */
+.login-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 40px 35px;
+    border-radius: 16px;
+    width: 360px;
+    text-align: center;
+    position: relative;
+    backdrop-filter: blur(10px);
+    border: 2px solid transparent;
+    animation: glow 2s infinite ease-in-out;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px #555, 0 0 20px #555;
+        border-color: #555;
+    }
+
+    50% {
+        box-shadow: 0 0 20px #000, 0 0 40px #000;
+        border-color: #000;
+    }
+
+    100% {
+        box-shadow: 0 0 10px #555, 0 0 20px #555;
+        border-color: #555;
+    }
+}
+
+/* Form layout */
+.login-form h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #0d0e0e;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #0e0d0d;
+    transition: background 0.3s;
+}
+
+.input-group input:focus {
+    background: rgba(255, 255, 255, 0.2);
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #06b306;
+    border: none;
+    border-radius: 8px;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #71df46;
+}
+
+/* Error and link */
+.error {
+    background: rgba(255, 0, 0, 0.1);
+    border: 1px solid #ff4d4d;
+    color: #ff4d4d;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.register-link {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.register-link a {
+    color: #4dff73;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}

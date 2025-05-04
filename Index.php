@@ -1,3 +1,20 @@
+<?php
+session_start();
+require './config/connect.php'; 
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login/login.php");
+    exit();
+}
+
+// Log a game session (once per session)
+if (!isset($_SESSION['game_session_id'])) {
+    $stmt = $conn->prepare("INSERT INTO game_sessions (user_id, start_time, generations) VALUES (?, NOW(), 0)");
+    $stmt->bind_param("i", $_SESSION['user_id']);
+    $stmt->execute();
+    $_SESSION['game_session_id'] = $conn->insert_id;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,6 +47,7 @@
   <!-- Navigation -->
   <nav>
     <a href="#grid">Play Game</a> 
+    <a href="homepage.html">Logout</a></p>
   </nav>
 
   <!-- Controls -->

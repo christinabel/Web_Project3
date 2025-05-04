@@ -1,30 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Conway's Game of Life</title>
   <link rel="stylesheet" href="Grid_styles.css">
 </head>
+
 <body>
-  <h1>Conway's Game of Life</h1>
 
-  <div id="controls">
+  <!-- Header and Introduction -->
+  <header>
+    <h1>Conway's Game of Life</h1>
+    <p>
+      Discover the fascinating world of cellular automata! Conway’s Game of Life is a zero-player game where patterns
+      evolve based on simple rules. It simulates birth, survival, and death on a grid — showing how complexity can arise
+      from simplicity.
+    </p>
+    <p><strong>Rules:</strong></p>
+    
+      <li>A live cell with 2 or 3 neighbors survives.</li>
+      <li>A dead cell with exactly 3 neighbors becomes alive.</li>
+      <li>All other cells die or remain dead.</li>
+    
+    <p><strong>Ready to see life unfold?</strong></p>
+    <button onclick="startGame()">👉 Try It Now</button>
+  </header>
 
+  <!-- Navigation -->
+  <nav>
+    <a href="#grid">Play Game</a> 
+  </nav>
+
+  <!-- Controls -->
+  <section id="controls">
     <label>
       Grid Size:
       <input type="number" id="gridSize" value="30" min="10" max="100" />
     </label>
-  
+
     <label>
       Speed (ms):
       <input type="number" id="speed" value="200" min="50" />
     </label>
-  
+
     <label>
       <input type="checkbox" id="animateToggle" checked />
       Animate
     </label>
-  
+
     <br><br>
 
     <button onclick="startGame()">▶️ Start</button>
@@ -45,16 +69,21 @@
         <option value="beacon">Beacon</option>
       </optgroup>
     </select>
-  </div>
+  </section>
 
-  <div id="info">
+  <!-- Info and Dynamic Preview -->
+  <section id="info">
     <span>Generation: <span id="generation">0</span></span>
     <span>Population: <span id="population">0</span></span>
-  </div>
+  </section>
 
-  <div id="grid"></div>
+  <div id="grid"></div> <!-- This is the dynamic preview -->
 
+ 
+
+  <!-- Scripts -->
   <script src="patterns.js"></script>
   <script src="game.js"></script>
 </body>
+
 </html>
